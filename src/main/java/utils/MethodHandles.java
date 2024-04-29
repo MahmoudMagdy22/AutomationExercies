@@ -3,6 +3,7 @@ package utils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -13,7 +14,6 @@ public class MethodHandles {
     WebDriverWait wait;
     Actions actions;
 
-    private final By barNotification = By.cssSelector("div[id='bar-notification']");
 
     private final By loader = By.cssSelector(".ajax-loading-block-window");
     public MethodHandles(WebDriver driver){
@@ -84,8 +84,12 @@ public class MethodHandles {
         return webElement(locator).isDisplayed();
     }
 
-    public boolean barNotificationIsDisplayed(){
-        invisibilityOfElement(loader,10);
-        return isDisplayed(barNotification,10);
+    protected void selectFromDropdown(By dropdownLocator, int index, int time) {
+        explicitWait(dropdownLocator, time);
+        Select dropdown = new Select(driver.findElement(dropdownLocator));
+        dropdown.selectByIndex(index);
     }
+
+
+
 }

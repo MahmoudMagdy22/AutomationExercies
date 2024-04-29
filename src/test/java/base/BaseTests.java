@@ -1,6 +1,7 @@
 package base;
 
 import data.DataModel;
+import home.HomeTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -21,6 +22,8 @@ public class BaseTests {
     protected WebDriver driver;
     protected ReadDataFromJson readDataFromJson;
     protected HomePage homePage;
+
+    protected HomeTest homeTest;
 
     ChromeOptions chromeOptions;
     FirefoxOptions firefoxOptions;
