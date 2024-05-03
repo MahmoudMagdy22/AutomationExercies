@@ -19,11 +19,11 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class BaseTests {
-    protected WebDriver driver;
+    protected static WebDriver driver;
     protected ReadDataFromJson readDataFromJson;
     protected HomePage homePage;
 
-    protected HomeTest homeTest;
+
 
     ChromeOptions chromeOptions;
     FirefoxOptions firefoxOptions;

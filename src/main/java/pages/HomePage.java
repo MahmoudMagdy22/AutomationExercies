@@ -10,6 +10,18 @@ public class HomePage extends MethodHandles {
     }
    private final By homeIcon = By.cssSelector("div[class='item active'] div[class='col-sm-6'] h2");
    private final By signInAndLoginButton = By.cssSelector("a[href='/login']");
+   private final By loggedInAsUserName =By.xpath("//li[10]//a[1]");
+   private final By deleteAccountButton=By.cssSelector("a[href='/delete_account']");
+
+   public void validateLogInUser(){
+       isDisplayed(loggedInAsUserName,5);
+   }
+
+   public DeleteAccountPage clickDeleteAccountButton(){
+       click(deleteAccountButton,5);
+       return new DeleteAccountPage(driver);
+   }
+
 
 
     public boolean VerifyHomePage(){
@@ -17,9 +29,9 @@ public class HomePage extends MethodHandles {
     }
 
 
-    public LoginPage clickOnLoginButton(){
+    public LoginAndSignupPage clickOnLoginButton(){
         click(signInAndLoginButton,5);
-        return new LoginPage(driver );
+        return new LoginAndSignupPage(driver );
     }
 
 }

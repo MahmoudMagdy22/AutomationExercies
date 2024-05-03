@@ -7,14 +7,14 @@ import pages.HomePage;
 
 public class HomeTest extends BaseTests {
 
-    HomePage homePage;
+     static HomePage homePage;
 
     public HomeTest(WebDriver driver) {
         super();
     }
 
     @Test
-    public void TestHomepage(){
+    public static void homepageTest(){
         homePage = new HomePage(driver);
         homePage.VerifyHomePage();
         homePage.clickOnLoginButton();

@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.MethodHandles;
 
-public class LoginPage extends MethodHandles {
-    public LoginPage(WebDriver driver) {
+public class LoginAndSignupPage extends MethodHandles {
+    public LoginAndSignupPage(WebDriver driver) {
         super(driver);
     }
 
@@ -25,15 +25,17 @@ public class LoginPage extends MethodHandles {
         return isDisplayed(loginForm,5);
     }
 
-   public void clickSignup(){
+   private void clickSignup(){
         click(signUpButton,5);
    }
 
    private void setUserName( String username){
+        clearFiled(userNameField);
         sendKeys(userNameField,5,username);
    }
 
    private void setEmail(String email){
+        clearFiled(signUpEmailField);
         sendKeys(signUpEmailField,5,email);
    }
 
@@ -43,6 +45,8 @@ public class LoginPage extends MethodHandles {
        clickSignup();
        return new AccountInfoPage(driver);
     }
+
+
 
 
 }

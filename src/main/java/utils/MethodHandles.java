@@ -84,10 +84,22 @@ public class MethodHandles {
         return webElement(locator).isDisplayed();
     }
 
-    protected void selectFromDropdown(By dropdownLocator, int index, int time) {
+    protected void clearFiled(By locator){
+        driver.findElement(locator).clear();
+    }
+
+    protected void selectFromDropdown(By dropdownLocator, String Value, int time) {
         explicitWait(dropdownLocator, time);
         Select dropdown = new Select(driver.findElement(dropdownLocator));
-        dropdown.selectByIndex(index);
+        dropdown.selectByValue(Value);
+    }
+
+    protected void selectRadioButton(WebDriver driver,By element,int time) {
+        // Find the radio button element and select it
+        explicitWait(element,time);
+        WebElement radioButton = driver.findElement(element);
+        if (!radioButton.isSelected())
+            radioButton.click();
     }
 
 
